@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachael Lamore - Product & Research Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a2e;
+            --secondary: #4a6b5f;
+            --accent: #5f9b7c;
+            --accent-2: #7eb69a;
+            --accent-3: #c7e5d3;
+            --warm-accent: #b8956a;
+            --background: #fdfdfb;
+            --surface: #f9faf9;
+            --border: #e1ede7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--background);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle botanical background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('ocean-sunset.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.12;
+        }
+
+        /* Subtle leaf vein pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg, 
+                rgba(253, 253, 251, 0.88) 0%,
+                rgba(253, 253, 251, 0.93) 40%,
+                rgba(249, 250, 249, 0.96) 70%,
+                rgba(225, 237, 231, 0.98) 100%
+            );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(249, 250, 249, 0.95) 0%, rgba(225, 237, 231, 0.4) 100%);
+            border-radius: 24px;
+            padding: 60px 50px;
+            margin-bottom: 60px;
+            box-shadow: 
+                0 1px 3px rgba(26, 58, 46, 0.08),
+                0 8px 24px rgba(95, 155, 124, 0.06);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            animation: slideDown 0.8s ease-out 0.2s backwards;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Decorative botanical corner accent */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 150px;
+            height: 150px;
+            background: 
+                radial-gradient(circle at 30% 30%, transparent 20%, rgba(95, 155, 124, 0.06) 20%, rgba(95, 155, 124, 0.06) 25%, transparent 25%),
+                radial-gradient(circle at 70% 70%, transparent 15%, rgba(126, 182, 154, 0.04) 15%, rgba(126, 182, 154, 0.04) 20%, transparent 20%);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        /* Subtle stem accent line */
+        header::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 24px;
+            letter-spacing: 0.03em;
+        }
+
+        .contact {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            margin-top: 24px;
+        }
+
+        .contact a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+        }
+
+        .contact a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.3s; }
+        section:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(4) { animation-delay: 0.5s; }
+        section:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+            color: var(--primary);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), transparent);
+        }
+
+        /* Decorative botanical divider */
+        h2::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: 
+                radial-gradient(circle at center, var(--accent) 2px, transparent 2px),
+                radial-gradient(circle at 0% 0%, transparent 40%, var(--accent-3) 40%, var(--accent-3) 45%, transparent 45%),
+                radial-gradient(circle at 100% 0%, transparent 40%, var(--accent-3) 40%, var(--accent-3) 45%, transparent 45%),
+                radial-gradient(circle at 0% 100%, transparent 40%, var(--accent-3) 40%, var(--accent-3) 45%, transparent 45%),
+                radial-gradient(circle at 100% 100%, transparent 40%, var(--accent-3) 40%, var(--accent-3) 45%, transparent 45%);
+            opacity: 0.4;
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, rgba(249, 250, 249, 0.8) 0%, rgba(225, 237, 231, 0.3) 100%);
+            border-left: 3px solid var(--accent);
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(26, 58, 46, 0.05);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--primary);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Subtle leaf accent in corner */
+        .summary-box::before {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            background: 
+                linear-gradient(135deg, transparent 45%, var(--accent-3) 45%, var(--accent-3) 55%, transparent 55%);
+            opacity: 0.15;
+            border-radius: 0 0 16px 0;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 40px;
+            padding: 36px 40px;
+            background: rgba(249, 250, 249, 0.6);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Elegant side accent */
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-3));
+            border-radius: 0 2px 2px 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .experience-item:hover::before,
+        .education-item:hover::before {
+            opacity: 1;
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            transform: translateX(6px);
+            box-shadow: 
+                0 4px 20px rgba(95, 155, 124, 0.08),
+                0 1px 3px rgba(26, 58, 46, 0.1);
+            border-color: rgba(95, 155, 124, 0.3);
+            background: rgba(249, 250, 249, 0.9);
+        }
+
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .meta {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .company {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .date {
+            background: rgba(95, 155, 124, 0.1);
+            color: var(--accent);
+            padding: 4px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid rgba(95, 155, 124, 0.15);
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--primary);
+        }
+
+        /* Elegant custom bullet */
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        li::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border: 1.5px solid var(--accent);
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-category {
+            background: rgba(249, 250, 249, 0.7);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Corner decoration */
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: 
+                linear-gradient(135deg, transparent 30%, rgba(95, 155, 124, 0.05) 30%);
+            border-radius: 0 16px 0 100%;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-6px);
+            box-shadow: 
+                0 12px 32px rgba(26, 58, 46, 0.08),
+                0 2px 8px rgba(95, 155, 124, 0.1);
+            border-color: rgba(95, 155, 124, 0.3);
+            background: rgba(249, 250, 249, 0.95);
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        /* Decorative accent for skill headers */
+        .skill-category h3::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 0 2px rgba(95, 155, 124, 0.2),
+                0 0 0 4px rgba(95, 155, 124, 0.1);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(225, 237, 231, 0.4) 100%);
+            padding: 9px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(95, 155, 124, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            color: var(--primary);
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 
+                0 4px 12px rgba(95, 155, 124, 0.25),
+                0 2px 4px rgba(26, 58, 46, 0.1);
+            border-color: transparent;
+        }
+
+        .key-strengths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .strength-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 250, 249, 0.7) 100%);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Organic corner accent */
+        .strength-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at center, rgba(95, 155, 124, 0.08), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .strength-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 
+                0 8px 24px rgba(95, 155, 124, 0.12),
+                0 2px 6px rgba(26, 58, 46, 0.08);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(249, 250, 249, 0.9) 100%);
+        }
+
+        .strength-card strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .strength-card p {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 253, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            padding: 0;
+        }
+
+        nav ul li::before,
+        nav ul li::after {
+            display: none;
+        }
+
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border);
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h2::before {
+                display: none;
+            }
+
+            header {
+                padding: 40px 30px;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .experience-item,
+            .education-item,
+            .skill-category {
+                padding: 28px;
+            }
+
+            .summary-box {
+                padding: 28px;
+            }
+
+            .key-strengths {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Rachael Lamore</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 140px;">
+        <header>
+            <h1>Rachael Lamore</h1>
+            <div class="title">Product & Research Professional</div>
+            <div class="contact">
+                <a href="/cdn-cgi/l/email-protection#47352b262a2835227574757407202a262e2b6924282a"><span class="__cf_email__" data-cfemail="71031d101c1e03144342434231161c10181d5f121e1c">[email&#160;protected]</span></a>
+                <span>•</span>
+                <a href="tel:+14086938949">408-693-8949</a>
+                <span>•</span>
+                <span>South Lake Tahoe, CA</span>
+            </div>
+        </header>
+
+        <section>
+            <div class="summary-box">
+                Product-minded researcher and strategist with expertise in transforming user insights into 
+                actionable product decisions. Experienced in conducting research, analyzing complex data, 
+                and leading cross-functional projects from discovery to delivery. Skilled at bridging 
+                technical and business stakeholders through clear communication and data-driven storytelling.
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Core Competencies</h2>
+            </div>
+            <div class="key-strengths">
+                <div class="strength-card">
+                    <strong>User Research & Discovery</strong>
+                    <p>Qualitative research methodologies, user interviews, behavioral analysis, and insight synthesis</p>
+                </div>
+                <div class="strength-card">
+                    <strong>Data Analysis & Visualization</strong>
+                    <p>Complex dataset handling, statistical analysis, and translating data into compelling narratives</p>
+                </div>
+                <div class="strength-card">
+                    <strong>Product Strategy</strong>
+                    <p>Roadmap development, feature prioritization, and aligning research insights with business goals</p>
+                </div>
+                <div class="strength-card">
+                    <strong>Stakeholder Collaboration</strong>
+                    <p>Cross-functional leadership, technical communication, and building consensus across teams</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Professional Experience</h2>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Senior Research Analyst</h3>
+                <div class="meta">
+                    <span class="company">GearLab</span>
+                    <span class="date">Nov 2023 - Present</span>
+                </div>
+                <ul>
+                    <li>Lead end-to-end research initiatives for high-priority product areas, developing research plans, timelines, and success metrics</li>
+                    <li>Conduct comprehensive user research to uncover pain points, needs, and behavioral patterns across competitive product categories</li>
+                    <li>Transform qualitative and quantitative insights into actionable product recommendations that drive measurable growth</li>
+                    <li>Partner with cross-functional teams to synthesize research findings and prioritize feature development</li>
+                    <li>Build data visualizations and deliver presentation-ready insights to leadership and stakeholders</li>
+                    <li>Optimize product strategy using consumer insights, achieving traffic and engagement goals across multiple verticals</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Research Project Lead</h3>
+                <div class="meta">
+                    <span class="company">California Polytechnic University</span>
+                    <span class="date">Jan 2016 - Dec 2019</span>
+                </div>
+                <ul>
+                    <li>Led multi-year research initiative analyzing behavioral patterns, managing project scope and deliverables from planning through publication</li>
+                    <li>Designed research methodologies combining observational studies with quantitative analysis to answer complex questions</li>
+                    <li>Built data analysis dashboards using R Studio and specialized tools to communicate findings to diverse audiences</li>
+                    <li>Collaborated with cross-functional research team, coordinating peer reviews and iterating on deliverables to meet deadlines</li>
+                    <li>Co-authored research papers and presented findings at professional conferences, translating technical concepts for varied audiences</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Customer Experience & Operations Lead</h3>
+                <div class="meta">
+                    <span class="company">BioSpirit Spa</span>
+                    <span class="date">Jul 2020 - Jun 2021</span>
+                </div>
+                <ul>
+                    <li>Served as primary customer touchpoint, conducting discovery conversations to understand needs and recommend solutions</li>
+                    <li>Led digital product improvements including website redesign and marketing campaigns to enhance user experience</li>
+                    <li>Analyzed customer feedback patterns to identify service gaps and recommend operational improvements</li>
+                    <li>Managed end-to-end customer journey from initial inquiry through service delivery and follow-up</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Field Research Specialist</h3>
+                <div class="meta">
+                    <span class="company">Marine Taxonomic Services</span>
+                    <span class="date">Summer 2023</span>
+                </div>
+                <ul>
+                    <li>Conducted autonomous fieldwork with emphasis on data quality, accuracy, and systematic documentation</li>
+                    <li>Implemented quality control processes ensuring data integrity across research operations</li>
+                    <li>Demonstrated adaptability and problem-solving in dynamic, resource-constrained environments</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Education & Research</h2>
+            </div>
+            
+            <div class="education-item">
+                <h3>Bachelor of Science in Biology</h3>
+                <div class="meta">
+                    <span class="company">California Polytechnic University, San Luis Obispo</span>
+                    <span class="date">2015 - 2020</span>
+                </div>
+                <p style="margin-top: 12px; color: var(--secondary);">Minor in Spanish | Research Focus: Behavioral Analysis & Data Communication</p>
+                
+                <ul style="margin-top: 20px;">
+                    <li>Presented research at Western Naturalists Conference on context-dependent behavioral analysis across multiple environments</li>
+                    <li>Co-authored NOAA report applying research methodology to stakeholder engagement and user experience in marine sanctuaries</li>
+                    <li>Contributing author to peer-reviewed manuscript analyzing behavioral patterns across spatial scales (in preparation for <em>Coral Reefs</em>)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Skills & Tools</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Research & Analysis</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Qualitative Methods</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Behavioral Studies</span>
+                        <span class="skill-tag">Consumer Insights</span>
+                        <span class="skill-tag">A/B Testing</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Product & Strategy</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Product Roadmapping</span>
+                        <span class="skill-tag">Feature Prioritization</span>
+                        <span class="skill-tag">User Stories</span>
+                        <span class="skill-tag">SEO Strategy</span>
+                        <span class="skill-tag">Competitive Analysis</span>
+                        <span class="skill-tag">Metrics & KPIs</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Technical Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">R Studio</span>
+                        <span class="skill-tag">Excel/Sheets</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">ArcGIS</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Stakeholder Management</span>
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">Presentation Design</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Cross-functional Leadership</span>
+                        <span class="skill-tag">Bilingual (Spanish)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <foo

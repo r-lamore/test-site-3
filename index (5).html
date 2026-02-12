@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachael Lamore - Product & Research Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #666;
+            --accent: #5f9b7c;
+            --light: #f8f8f8;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section with Animated Ocean Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('ocean-sunset.jpg') center/cover no-repeat;
+            animation: slowZoom 20s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(26, 26, 26, 0.6) 0%,
+                rgba(95, 155, 124, 0.4) 50%,
+                rgba(26, 26, 26, 0.5) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 40px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content .subtitle {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out 0.2s backwards;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            animation: fadeInUp 1.2s ease-out 0.4s backwards;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeInUp 1.2s ease-out 0.6s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1.2s ease-out 0.8s backwards;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border: 2px solid;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            opacity: 0.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 60px;
+            background: white;
+        }
+
+        .about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 0;
+            box-shadow: 20px 20px 0 var(--accent);
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Work Section */
+        .work {
+            padding: 120px 60px;
+            background: var(--light);
+        }
+
+        .work .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .work-item {
+            background: white;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .work-item-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .work-item-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(95, 155, 124, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .work-item:hover .work-item-image::after {
+            opacity: 1;
+        }
+
+        .work-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .work-item:hover .work-item-image img {
+            transform: scale(1.1);
+        }
+
+        .work-item-content {
+            padding: 35px;
+        }
+
+        .work-item-category {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .work-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .work-item p {
+            color: var(--secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .work-item-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: gap 0.3s ease;
+        }
+
+        .work-item-link::after {
+            content: ' →';
+            margin-left: 5px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .work-item-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 60px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .contact .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .contact .btn-primary:hover {
+            background: transparent;
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 60px;
+            background: #0a0a0a;
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about .container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .about-image img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 0 30px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .section-header h2,
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about,
+            .work,
+            .contact {
+                padding: 80px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <div class="container">
+            <a href="index.html" class="logo">Rachael Lamore</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="subtitle">Product & Research Professional</div>
+            <h1>Rachael Lamore</h1>
+            <p class="tagline">
+                Transforming user insights into product decisions through research excellence, 
+                data-driven strategy, and cross-functional leadership
+            </p>
+            <div class="cta-buttons">
+                <a href="projects.html" class="btn btn-primary">View My Work</a>
+                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-image">
+                <img src="headshot.jpg" alt="Rachael Lamore">
+            </div>
+            <div class="about-content">
+                <h2>Bridging Research & Product Strategy</h2>
+                <p>
+                    With 5+ years of experience in research and product analysis, I specialize in 
+                    transforming complex user data into actionable product insights. My work at GearLab 
+                    has reached over 100K+ monthly readers, testing 100+ products annually across audio 
+                    and home cleaning categories.
+                </p>
+                <p>
+                    I bring a unique combination of hands-on research methodology, statistical analysis, 
+                    and customer-facing experience—perfectly positioned for Product Management, UX Research, 
+                    and Solutions Consulting roles.
+                </p>
+                <p>
+                    Currently based in South Lake Tahoe, CA, I'm actively exploring opportunities where 
+                    I can leverage my research expertise to drive user-centered product development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="work">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <p>A selection of research initiatives and published analysis demonstrating my approach to understanding users and driving product decisions</p>
+            </div>
+
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="tahoe-mountains.jpg" alt="Audio Research">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-category">Audio Product Research</div>
+                        <h3>Consumer Audio Analysis</h3>
+                        <p>
+                            Led comprehensive testing of 50+ headphones and earbuds, designing methodologies 
+                            to evaluate sound quality, comfort, and user experience. Published research reaches 
+                            100K+ monthly readers.
+                        </p>
+                        <a href="projects.html" class="work-item-link">View Research</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="ocean-sunset.jpg" alt="Published Research">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-category">Academic Research</div>
+                        <h3>Behavioral Analysis Studies</h3>
+                        <p>
+                            Multi-year research initiative examining context-dependent patterns. Co-authored 
+                            peer-reviewed publications and presented at professional conferences.
+                        </p>
+                        <a href="projects.html" class="work-item-link">View Publications</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="tahoe-mountains.jpg" alt="Product Testing">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-category">Product Testing</div>
+                        <h3>Home Cleaning Products</h3>
+                        <p>
+                            Expanded research expertise across product categories, testing vacuum cleaners 
+                            and cleaning appliances through rigorous lab and real-world evaluations.
+                        </p>
+                        <a href="projects.html" class="work-item-link">View Testing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>
+                I'm actively seeking opportunities in Product Management, UX Research, and Solutions 
+                Consulting. If you're looking for someone who can bridge research and strategy to 
+                drive product decisions, let's connect.
+            </p>
+            <div class="contact-buttons">
+                <a href="contact.html" class="btn btn-primary">Contact Me</a>
+                <a href="resume.html" class="btn btn-secondary">View Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Rachael Lamore • Cultivating insights, growing products</p>
+    </footer>
+
+    <script>
+        // Add scrolled class to nav on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

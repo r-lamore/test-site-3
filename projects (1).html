@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Rachael Lamore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a2e;
+            --secondary: #4a6b5f;
+            --accent: #5f9b7c;
+            --accent-2: #7eb69a;
+            --accent-3: #c7e5d3;
+            --warm-accent: #b8956a;
+            --background: #fdfdfb;
+            --surface: #f9faf9;
+            --border: #e1ede7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--background);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('tahoe-mountains.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg, 
+                rgba(253, 253, 251, 0.85) 0%,
+                rgba(253, 253, 251, 0.92) 40%,
+                rgba(249, 250, 249, 0.95) 70%,
+                rgba(225, 237, 231, 0.97) 100%
+            );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 253, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 140px 40px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-intro {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .project {
+            background: rgba(249, 250, 249, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .project:nth-child(1) { animation-delay: 0.1s; }
+        .project:nth-child(2) { animation-delay: 0.2s; }
+        .project:nth-child(3) { animation-delay: 0.3s; }
+        .project:nth-child(4) { animation-delay: 0.4s; }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-2));
+            border-radius: 0 2px 2px 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project:hover {
+            transform: translateX(6px);
+            box-shadow: 0 12px 40px rgba(95, 155, 124, 0.12);
+            border-color: var(--accent);
+        }
+
+        .project:hover::before {
+            opacity: 1;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(95, 155, 124, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .project h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .project-meta {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .project p {
+            color: var(--primary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .project ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .project li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .project li::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border: 1.5px solid var(--accent);
+            border-radius: 50%;
+            background: transparent;
+        }
+
+        .project-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link::after {
+            content: '→';
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* Special styling for links within lists */
+        .project ul li a.project-link {
+            display: inline;
+            font-weight: 500;
+            margin-top: 0;
+            padding-left: 0;
+            border-bottom: 1px solid rgba(95, 155, 124, 0.3);
+        }
+
+        .project ul li a.project-link:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* Remove default list markers from link items */
+        .project ul li:has(a.project-link)::before,
+        .project ul li:has(a.project-link)::after {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 120px 24px 60px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-intro {
+                font-size: 1.05rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+            }
+
+            .project {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Rachael Lamore</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Research & Projects</h1>
+            <p class="page-intro">
+                A portfolio of research initiatives, publications, and product work demonstrating 
+                my approach to understanding users and driving product decisions through data.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project">
+                <span class="project-tag">Current Work</span>
+                <h2>Consumer Research & Product Strategy at GearLab</h2>
+                <p class="project-meta">Senior Research Analyst • 2023 - Present</p>
+                <p>
+                    Leading high-priority research initiatives across audio and home cleaning product categories, 
+                    testing 100+ products annually in state-of-the-art facilities. Published work reaches over 
+                    100K+ monthly readers, translating complex technical analysis into actionable consumer guidance.
+                </p>
+                <ul>
+                    <li>Lead researcher for multiple product verticals including audio equipment and home cleaning appliances</li>
+                    <li>Designed comprehensive testing methodologies evaluating performance, usability, durability, and user experience across diverse product categories</li>
+                    <li>Conducted hands-on testing combining quantitative lab measurements with qualitative real-world usage insights</li>
+                    <li>Built data visualization frameworks to synthesize findings from dozens of products into clear comparison matrices</li>
+                    <li>Authored extensive buying guides that educate consumers on product selection criteria, technical specifications, and best practices</li>
+                    <li>Translated consumer insights into product recommendations, driving significant traffic growth and reader engagement</li>
+                </ul>
+                
+                <div style="margin-top: 32px; padding: 24px; background: rgba(95, 155, 124, 0.06); border-radius: 12px; border-left: 3px solid var(--accent);">
+                    <p style="font-weight: 600; color: var(--accent); margin-bottom: 16px; font-size: 1.05rem;">Featured Published Research:</p>
+                    
+                    <p style="font-weight: 600; color: var(--primary); margin-top: 20px; margin-bottom: 8px;">Audio Products</p>
+                    <ul style="margin-top: 8px;">
+                        <li><a href="https://www.techgearlab.com/topics/audio/best-headphones" target="_blank" class="project-link">The Best Headphones of 2026</a> - Comprehensive testing of 50+ over-ear headphones evaluating sound quality, comfort, and noise cancellation</li>
+                        <li><a href="https://www.techgearlab.com/topics/audio/best-wireless-headphones" target="_blank" class="project-link">Best Wireless Headphones</a> - In-depth analysis of wireless connectivity, battery life, and audio performance across premium and budget models</li>
+                        <li><a href="https://www.techgearlab.com/topics/audio/best-wireless-earbuds" target="_blank" class="project-link">Best Wireless Earbuds</a> - Detailed earbud comparison covering fit, portability, and use-case scenarios from commuting to exercise</li>
+                    </ul>
+                    
+                    <p style="font-weight: 600; color: var(--primary); margin-top: 20px; margin-bottom: 8px;">Home Cleaning Products</p>
+                    <ul style="margin-top: 8px;">
+                        <li><a href="https://www.techgearlab.com/topics/floor-cleaning/best-vacuum-cleaner" target="_blank" class="project-link">Best Vacuum Cleaners</a> - Rigorous testing of upright, canister, and robotic vacuums across multiple floor types and debris conditions</li>
+                        <li><a href="https://www.techgearlab.com/topics/floor-cleaning/best-cordless-stick-vacuum" target="_blank" class="project-link">Best Cordless Stick Vacuums</a> - Performance analysis of lightweight, maneuverable vacuums for quick cleanups and whole-home cleaning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <span class="project-tag">Published Research</span>
+                <h2>Ecological Drivers of Behavioral Patterns Across Spatial Scales</h2>
+                <p class="project-meta">Contributing Author • In preparation for <em>Coral Reefs</em></p>
+                <p>
+                    Multi-year collaborative research project analyzing context-dependent behavioral patterns 
+                    across Caribbean reef ecosystems. Demonstrates expertise in research design, statistical 
+                    analysis, and scientific communication.
+                </p>
+                <ul>
+                    <li>Designed observational research methodology combining field studies with quantitative analysis</li>
+                    <li>Built analysis pipelines using R Studio for large-scale behavioral datasets</li>
+                    <li>Collaborated with international research team to coordinate data collection and peer review</li>
+                    <li>Synthesized complex findings into publication-quality visualizations and narratives</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <span class="project-tag">Conference Presentation</span>
+                <h2>Context-Dependent Behavioral Variation Across Reef Systems</h2>
+                <p class="project-meta">Western Naturalists Conference • 2019</p>
+                <p>
+                    Presented original research examining how environmental context influences behavioral 
+                    patterns, with implications for understanding user behavior in different contexts.
+                </p>
+                <ul>
+                    <li>Delivered technical presentation to audience of researchers and practitioners</li>
+                    <li>Translated complex statistical findings into accessible visual narratives</li>
+                    <li>Demonstrated ability to communicate research insights to diverse stakeholder groups</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <span class="project-tag">Stakeholder Research</span>
+                <h2>Defining Sense of Place: User Experience in Marine Sanctuaries</h2>
+                <p class="project-meta">Co-authored NOAA Report • 2018</p>
+                <p>
+                    Applied user experience research methodology to understand stakeholder engagement with 
+                    the Channel Islands National Marine Sanctuary. Demonstrates expertise in qualitative 
+                    research and stakeholder analysis.
+                </p>
+                <ul>
+                    <li>Conducted stakeholder interviews and synthesized diverse perspectives</li>
+                    <li>Developed framework for measuring experiential qualities and user sentiment</li>
+                    <li>Delivered actionable recommendations to federal agency partners</li>
+                    <li>Bridged gap between research methodology and practical application</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Cultivating insights, growing products • © 2026 Rachael Lamore</p>
+    </footer>
+</body>
+</html>
